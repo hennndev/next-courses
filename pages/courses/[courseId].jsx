@@ -177,7 +177,7 @@ export const getStaticProps = async({params}) => {
         const data = await fetchAPI(`courses-data/${params.courseId}`)
         return {
             props: {
-                data: data.data
+                data: JSON.parse(JSON.stringify(data.data))
             },
             revalidate: 60
         }
