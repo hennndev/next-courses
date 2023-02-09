@@ -46,7 +46,7 @@ const TransactionHistory = () => {
                                         1
                                     </th>
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
+                                        Apple MacBook Pro 17
                                     </th>
                                     <td class="px-6 py-4">
                                         Sliver
@@ -67,7 +67,7 @@ const TransactionHistory = () => {
                                         2
                                     </th>
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
+                                        Apple MacBook Pro 17
                                     </th>
                                     <td class="px-6 py-4">
                                         Sliver
@@ -88,7 +88,7 @@ const TransactionHistory = () => {
                                         2
                                     </th>
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
+                                        Apple MacBook Pro 17
                                     </th>
                                     <td class="px-6 py-4">
                                         Sliver
@@ -109,7 +109,7 @@ const TransactionHistory = () => {
                                         2
                                     </th>
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
+                                        Apple MacBook Pro 17
                                     </th>
                                     <td class="px-6 py-4">
                                         Sliver
@@ -130,7 +130,7 @@ const TransactionHistory = () => {
                                         2
                                     </th>
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
+                                        Apple MacBook Pro 17
                                     </th>
                                     <td class="px-6 py-4">
                                         Sliver
@@ -151,7 +151,7 @@ const TransactionHistory = () => {
                                         2
                                     </th>
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
+                                        Apple MacBook Pro 17
                                     </th>
                                     <td class="px-6 py-4">
                                         Sliver
@@ -172,7 +172,7 @@ const TransactionHistory = () => {
                                         2
                                     </th>
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
+                                        Apple MacBook Pro 17
                                     </th>
                                     <td class="px-6 py-4">
                                         Sliver
@@ -193,7 +193,7 @@ const TransactionHistory = () => {
                                         2
                                     </th>
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
+                                        Apple MacBook Pro 17
                                     </th>
                                     <td class="px-6 py-4">
                                         Sliver
@@ -214,7 +214,7 @@ const TransactionHistory = () => {
                                         2
                                     </th>
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
+                                        Apple MacBook Pro 17
                                     </th>
                                     <td class="px-6 py-4">
                                         Sliver
