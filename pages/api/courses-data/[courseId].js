@@ -15,19 +15,12 @@ export default async function handler(req, res) {
     // TESTING CLEAR
     await connectMongo()
     if(req.method === 'GET') {
-        try {
-            const course = await Courses.findOne({_id: req.query.courseId}).select('-createdAt -__v -updatedAt').populate({path: 'totalUsersEnrolled.user', model: Users})
-            res.status(200).json({
-                status: 'success',
-                message: 'Success get course',
-                data: course
-            })
-        } catch (error) {
-            res.status(400).json({
-                status: 'error',
-                error: 'Failed get courses'
-            })
-        }
+        const course = await Courses.findOne({_id: req.query.courseId}).select('-createdAt -__v -updatedAt').populate({path: 'totalUsersEnrolled.user', model: Users})
+        res.status(200).json({
+            status: 'success',
+            message: 'Success get course',
+            data: course
+        })
     }
     // TESTING CLEAR enroll course || add rating and add review
     if(req.method === 'PUT') {
