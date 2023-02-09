@@ -12,7 +12,7 @@ const Courses = ({data: dataCourses}) => {
 
     const router = useRouter()
     const filteredData = dataCourses.filter(course => {
-            return course.courseTitle.toLowerCase().replaceAll(" ", '').includes(router.query?.q?.toLowerCase().replaceAll(" ", '') || '') && 
+            return course.courseTitle.toLowerCase().replace(/\s/g, "").includes(router.query?.q?.toLowerCase().replace(/\s/g, "") || '') && 
             course.courseCategory.toLowerCase().includes(router.query?.category === 'allcategory' ? '' : router.query?.category || '') 
         }).filter(course => {
             if(router.query?.totalUsersEnrolled) {
@@ -26,7 +26,8 @@ const Courses = ({data: dataCourses}) => {
                 }, 0) / course.totalUsersEnrolled.filter(user => user.isReview).length) >= router.query?.rating || 0
             } else return course
         })
-   
+
+
     return (
         <>
             <Head>

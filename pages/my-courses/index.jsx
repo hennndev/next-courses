@@ -28,7 +28,7 @@ const MyCourses = ({data}) => {
                             animate={{opacity: 1, y: 0}}
                             transition={{ease: 'backInOut', duration: 1}}
                             className="container px-[20px] lg:px-[40px] flex-center flex-col">
-                            <h1 className='mb-[20px]'>You still don't have course yet.</h1>
+                            <h1 className='mb-[20px]'>You still don&apos;t have course yet.</h1>
                             <button className="btn-primary" onClick={() => router.push('/courses')}>Explore Courses</button>
                         </motion.div>
                     )}

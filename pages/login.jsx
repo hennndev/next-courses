@@ -102,7 +102,7 @@ const Login = () => {
                                     </svg>
                                     Login with Facebook
                                 </button>
-                                <p className='text-center text-[14px] text-gray-400 mt-4'>Don't have an account? <Link href="/signup" className='text-blue-500 hover:underline'>Signup</Link></p>
+                                <p className='text-center text-[14px] text-gray-400 mt-4'>Don&apos;t have an account? <Link href="/signup" className='text-blue-500 hover:underline'>Signup</Link></p>
                             </form>
                         )}
                     </Formik>
