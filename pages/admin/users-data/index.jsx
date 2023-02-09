@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { getSession } from 'next-auth/react'
 import Pagination from '@/components/ui/Pagination'
+import { fetchAPI } from '@/helpers/utilsFetch'
 
 const UsersData = ({data}) => {
 
@@ -93,8 +94,7 @@ export const getServerSideProps = async(ctx) => {
             }
         }
     } else {
-        const res = await fetch('http://localhost:3000/api/users')
-        const data = await res.json()
+        const data = await fetchAPI('users')
     
         return {
             props: {

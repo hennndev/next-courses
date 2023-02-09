@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { getSession } from 'next-auth/react'
 import toast, { Toaster } from 'react-hot-toast'
 import usePreviewImage from '@/hooks/usePreviewImage'
-import { cloudinaryFetch } from '@/helpers/utilsFetch'
+import { cloudinaryFetch, fetchAPI } from '@/helpers/utilsFetch'
 import ModalConfirming from '@/components/ui/ModalConfirming'
 import CoursesForm from '@/components/courses-data/CoursesForm'
 
@@ -164,8 +164,7 @@ const EditCourse = ({data}) => {
 export const getServerSideProps = async(ctx) => {
     const session = await getSession(ctx)
 
-    const res = await fetch(`http://localhost:3000/api/courses-data/${ctx.query.courseId}`)
-    const data = await res.json()
+    const data = await fetchAPI(`courses-data/${ctx.query.courseId}`)
 
     if(session?.user.role !== 'admin') {
         return {

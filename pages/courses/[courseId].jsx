@@ -88,75 +88,77 @@ const CourseDetail = ({data}) => {
             setShowConfirm(false)
         })
     }   
-
-    return (
-        <>
-            <Head>
-                <title>Course Page</title>
-            </Head>
-            <main className='mt-[100px] md:mt-[120px] mb-[50px] lg:px-[40px] xl:px-0'> 
-                <Toaster/>
-                <div className="flex-center">
-                    <AnimatePresence>
-                        {showAlert && <InfoAlert handleClose={() => setShowAlert(false)}/>}
-                        {showConfirm && <ModalConfirming 
-                            confirmTitle="Ready to enroll this course?" 
-                            btnTitle="Yes, I&apos;m ready"
-                            handleConfirm={handleConfirm}
-                            isLoading={isLoading}
-                            handleClose={() => setShowConfirm(false)}/>}
-                    </AnimatePresence>
-                </div>                
-                <div className='flex container'>
-                    <div className='flex-1 flex flex-col md:flex-row lg:mr-[30px] bg-white dark:bg-transparent rounded text-gray-800 dark:text-white sm:px-[20px] lg:px-0'>
-                        <motion.div
-                            initial={{opacity: 0}}
-                            animate={{opacity: 1}}
-                            transition={{ ease: "backIn",  duration: 0.8}} 
-                            className="block lg:hidden relative w-full h-[250px] sm:mr-[20px] md:w-[320px] mb-4">
-                            <Image sizes="100%" priority fill src={data?.courseThumbnail.thumbnailUrl} alt={data?.courseTitle} className='rounded object-cover md:object-contain'/>
-                        </motion.div>
+    console.log(data)
+    if(data) {
+        return (
+            <>
+                <Head>
+                    <title>Course Page</title>
+                </Head>
+                <main className='mt-[100px] md:mt-[120px] mb-[50px] lg:px-[40px] xl:px-0'> 
+                    <Toaster/>
+                    <div className="flex-center">
+                        <AnimatePresence>
+                            {showAlert && <InfoAlert handleClose={() => setShowAlert(false)}/>}
+                            {showConfirm && <ModalConfirming 
+                                confirmTitle="Ready to enroll this course?" 
+                                btnTitle="Yes, I&apos;m ready"
+                                handleConfirm={handleConfirm}
+                                isLoading={isLoading}
+                                handleClose={() => setShowConfirm(false)}/>}
+                        </AnimatePresence>
+                    </div>                
+                    <div className='flex container'>
+                        <div className='flex-1 flex flex-col md:flex-row lg:mr-[30px] bg-white dark:bg-transparent rounded text-gray-800 dark:text-white sm:px-[20px] lg:px-0'>
+                            <motion.div
+                                initial={{opacity: 0}}
+                                animate={{opacity: 1}}
+                                transition={{ ease: "backIn",  duration: 0.8}} 
+                                className="block lg:hidden relative w-full h-[250px] sm:mr-[20px] md:w-[320px] mb-4">
+                                <Image sizes="100%" priority fill src={data?.courseThumbnail.thumbnailUrl} alt={data?.courseTitle} className='rounded object-cover md:object-contain'/>
+                            </motion.div>
+                            <motion.div 
+                                initial={{opacity: 0, x: -50}}
+                                animate={{opacity: 1, x: 0}}
+                                transition={{ ease: "backIn", duration: 1}}
+                                className="px-[20px] md:px-0 flex-1">
+                                <h1 className='text-[30px] font-bold'>{data?.courseTitle}</h1>
+                                <p className='text-[16px] leading-[1.7] mb-5 mt-[10px] text-gray-600 dark:text-white font-[500] text-justify'>{data?.courseDescription}</p>
+                                <p className='text-[15px] mt-[5px] text-gray-600 dark:text-white font-[500]'>Created by <span className='underline'>{data?.courseAuthor}</span></p>
+                                <p className='mt-[5px] text-[15px] text-gray-600 dark:text-white font-[500]'>
+                                    {data?.totalUsersEnrolled.length} Users Joinned
+                                </p>
+                                <div className='mt-[5px]'>
+                                    <Rating data={data}/>
+                                </div>  
+                                <button type="button" className="block lg:hidden btn-primary-gradient" onClick={handleClick}>
+                                    Free Enroll
+                                </button>
+                            </motion.div>
+                        </div>
                         <motion.div 
-                            initial={{opacity: 0, x: -50}}
+                            initial={{opacity: 0, x: 50}}
                             animate={{opacity: 1, x: 0}}
                             transition={{ ease: "backIn", duration: 1}}
-                            className="px-[20px] md:px-0 flex-1">
-                            <h1 className='text-[30px] font-bold'>{data?.courseTitle}</h1>
-                            <p className='text-[16px] leading-[1.7] mb-5 mt-[10px] text-gray-600 dark:text-white font-[500] text-justify'>{data?.courseDescription}</p>
-                            <p className='text-[15px] mt-[5px] text-gray-600 dark:text-white font-[500]'>Created by <span className='underline'>{data?.courseAuthor}</span></p>
-                            <p className='mt-[5px] text-[15px] text-gray-600 dark:text-white font-[500]'>
-                                {data?.totalUsersEnrolled.length} Users Joinned
-                            </p>
-                            <div className='mt-[5px]'>
-                                <Rating data={data}/>
-                            </div>  
-                            <button type="button" className="block lg:hidden btn-primary-gradient" onClick={handleClick}>
-                                Free Enroll
-                            </button>
+                            className="hidden h-fit lg:flex flex-col w-[350px] min-h-[300px] bg-white dark:bg-gray-900 border border-gray-200 rounded-lg shadow-lg overflow-hidden dark:border-gray-700">
+                            <div className="relative h-[200px] w-full rounded-lg">
+                                <Image sizes="100%" priority fill src={data?.courseThumbnail.thumbnailUrl} alt={data?.courseTitle} className="rounded-lg object-cover"/>
+                            </div>
+                            <div className="flex-1 flex flex-col p-5 text-gray-700 dark:text-gray-100">
+                                <div className="flex-1">
+                                    <h5 className="mb-1 text-2xl font-bold tracking-tight">{data?.courseTitle}</h5>
+                                    <p>{data?.courseMaterials.length} Course content</p>
+                                </div>
+                                <button  type="button" className="btn-primary-gradient" onClick={handleClick} disabled={isLoading}>
+                                    Free Enroll
+                                </button>
+                            </div>
                         </motion.div>
                     </div>
-                    <motion.div 
-                        initial={{opacity: 0, x: 50}}
-                        animate={{opacity: 1, x: 0}}
-                        transition={{ ease: "backIn", duration: 1}}
-                        className="hidden h-fit lg:flex flex-col w-[350px] min-h-[300px] bg-white dark:bg-gray-900 border border-gray-200 rounded-lg shadow-lg overflow-hidden dark:border-gray-700">
-                        <div className="relative h-[200px] w-full rounded-lg">
-                            <Image sizes="100%" priority fill src={data?.courseThumbnail.thumbnailUrl} alt={data?.courseTitle} className="rounded-lg object-cover"/>
-                        </div>
-                        <div className="flex-1 flex flex-col p-5 text-gray-700 dark:text-gray-100">
-                            <div className="flex-1">
-                                <h5 className="mb-1 text-2xl font-bold tracking-tight">{data?.courseTitle}</h5>
-                                <p>{data?.courseMaterials.length} Course content</p>
-                            </div>
-                            <button  type="button" className="btn-primary-gradient" onClick={handleClick} disabled={isLoading}>
-                                Free Enroll
-                            </button>
-                        </div>
-                    </motion.div>
-                </div>
-            </main>
-        </>
-    )
+                </main>
+            </>
+        )
+    }
 }
 
 
@@ -167,7 +169,7 @@ export const getStaticPaths = async() => {
         params: {courseId: data._id}
     }))
     return {
-        paths: JSON.parse(JSON.stringify(paths)),
+        paths,
         fallback: true
     }
 }
