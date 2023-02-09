@@ -1,3 +1,5 @@
+import { apiRoute } from "@/config/config"
+
 export const cloudinaryFetch = async(value) => {
     const formDataImage = new FormData()
     formDataImage.append('file', value)
@@ -10,8 +12,9 @@ export const cloudinaryFetch = async(value) => {
     return data
 }
 
+
 export const fetchAPI = async (route) => {
-    const res = await fetch(`http://localhost:3000/api/${route}`)
+    const res = await fetch(`${apiRoute}/api/${route}`)
     const data = await res.json()
     return data
 }
