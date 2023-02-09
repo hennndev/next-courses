@@ -16,5 +16,6 @@ export const cloudinaryFetch = async(value) => {
 export const fetchAPI = async (route) => {
     const res = await fetch(`${apiRoute}/api/${route}`)
     const data = await res.json()
-    return data
+
+    return JSON.parse(JSON.stringify(data))
 }

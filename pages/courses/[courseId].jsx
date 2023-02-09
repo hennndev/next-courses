@@ -98,7 +98,7 @@ const CourseDetail = ({data}) => {
                     <title>Course Page</title>
                 </Head>
                 <main className='mt-[100px] md:mt-[120px] mb-[50px] lg:px-[40px] xl:px-0'> 
-                    {/* <Toaster/>
+                    <Toaster/>
                     <div className="flex-center">
                         <AnimatePresence>
                             {showAlert && <InfoAlert handleClose={() => setShowAlert(false)}/>}
@@ -156,7 +156,7 @@ const CourseDetail = ({data}) => {
                                 </button>
                             </div>
                         </motion.div>
-                    </div> */}
+                    </div>
                 </main>
             </>
         )
@@ -179,10 +179,9 @@ export const getStaticPaths = async() => {
 export const getStaticProps = async({params}) => {
     try {
         const data = await fetchAPI(`courses-data/${params.courseId}`)
-        console.log(data)
         return {
             props: {
-                data: data
+                data: data.data
             },
             revalidate: 60
         }
