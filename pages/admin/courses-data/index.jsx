@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { getSession } from 'next-auth/react'
+import { fetchAPI } from '@/helpers/utilsFetch'
 import { emptyTable } from '@/helpers/utilsFunc'
 import toast, { Toaster } from 'react-hot-toast'
 import Pagination from '@/components/ui/Pagination'
@@ -171,8 +172,7 @@ export const getServerSideProps = async(ctx) => {
             }
         }
     } else {
-        const res = await fetch('http://localhost:3000/api/courses-data')
-        const data = await res.json()
+        const data = await fetchAPI('courses-data')
     
         return {
             props: {

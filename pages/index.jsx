@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useDispatch } from 'react-redux'
 import { getSession } from 'next-auth/react'
+import { fetchAPI } from '@/helpers/utilsFetch'
 import { storeCurrentUser } from '@/store/reducers'
 
 const Homepage = ({data}) => {
@@ -70,8 +71,7 @@ const Homepage = ({data}) => {
 export const getServerSideProps = async(ctx) => {
     const session = await getSession(ctx)
     if(session) {
-        const res = await fetch(`http://localhost:3000/api/users/${session.user.email}`)
-        const data = await res.json()
+        const data = await fetchAPI(`users/${session.user.email}`)
         return {
             props: {
                 data: data.data

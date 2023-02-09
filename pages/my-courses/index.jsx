@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { getSession } from 'next-auth/react'
+import { fetchAPI } from '@/helpers/utilsFetch'
 import ModalReview from '@/components/ui/ModalReview'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -78,8 +79,7 @@ export const getServerSideProps = async(ctx) => {
             }
         }
     } else {
-        const res = await fetch(`http://localhost:3000/api/users/${session.user.email}`)
-        const data = await res.json()
+        const data = await fetchAPI(`users/${session.user.email}`)
 
         return {
             props: {
