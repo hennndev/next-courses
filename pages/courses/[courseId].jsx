@@ -167,7 +167,7 @@ export const getStaticPaths = async() => {
         params: {courseId: data._id}
     }))
     return {
-        paths,
+        paths: JSON.parse(JSON.stringify(paths)),
         fallback: true
     }
 }
@@ -177,7 +177,7 @@ export const getStaticProps = async({params}) => {
         const data = await fetchAPI(`courses-data/${params.courseId}`)
         return {
             props: {
-                data: JSON.parse(JSON.stringify(data.data))
+                data: data.data
             },
             revalidate: 60
         }
