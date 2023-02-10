@@ -10,6 +10,7 @@ export default NextAuth({
     session: {
         strategy: "jwt"
     },
+    secret: 'next-courses-secret',
     providers: [
         GoogleProvider({
             clientId: process.env.NEXT_APP_GOOGLE_CLIENT_ID,
