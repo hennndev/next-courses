@@ -17,5 +17,5 @@ export const fetchAPI = async (route) => {
     const res = await fetch(`${apiRoute}/api/${route}`)
     const data = await res.json()
 
-    return JSON.parse(JSON.stringify(data))
+    return data
 }
