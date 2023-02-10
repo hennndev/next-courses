@@ -172,13 +172,13 @@ export const getStaticPaths = async() => {
     }))
     return {
         paths,
-        fallback: 'blocking'
+        fallback: false
     }
 }
 
 export const getStaticProps = async({params}) => {
+    const data = await fetchAPI(`courses-data/${params.courseId}`)
     try {
-        const data = await fetchAPI(`courses-data/${params.courseId}`)
         return {
             props: {
                 data: data.data
