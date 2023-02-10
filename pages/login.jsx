@@ -113,21 +113,21 @@ const Login = () => {
 }
 
 
-export const getServerSideProps = async (ctx) => {
-    const session = await getSession(ctx)
+// export const getServerSideProps = async (ctx) => {
+//     const session = await getSession(ctx)
 
-    if(session) {
-        return {
-            redirect: {
-                permanent: false,
-                destination: '/'
-            }
-        }
-    } else {
-        return {
-            props: {}
-        }
-    }
-}
+//     if(session) {
+//         return {
+//             redirect: {
+//                 permanent: false,
+//                 destination: '/'
+//             }
+//         }
+//     } else {
+//         return {
+//             props: {}
+//         }
+//     }
+// }
 
 export default Login
