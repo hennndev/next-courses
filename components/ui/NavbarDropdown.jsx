@@ -18,16 +18,10 @@ const NavbarDropdown = ({pageTitle, handleClose}) => {
             <div className={`z-10 ${!isDropdown ? 'hidden' : ''} absolute font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 dark:bg-gray-900 dark:divide-gray-600`}>
                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
                     <li onClick={closeDropdown}>
-                        <Link href="/admin/dashboard" className={`block px-4 py-2 ${pageTitle === 'dashboard' ? 'link-active' : 'hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'} `}>Dashboard</Link>
-                    </li>
-                    <li onClick={closeDropdown}>
                         <Link href="/admin/courses-data" className={`block px-4 py-2 ${pageTitle === 'courses-data' || pageTitle === 'add-course' ? 'link-active' : 'hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'} `}>Courses Data</Link>
                     </li>
                     <li onClick={closeDropdown}>
                         <Link href="/admin/users-data" className={`block px-4 py-2 ${pageTitle === 'users-data' ? 'link-active' : 'hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'} `}>Users Data</Link>
-                    </li>
-                    <li onClick={closeDropdown}>
-                        <Link href="/admin/enroll-history" className={`block px-4 py-2 ${pageTitle === 'enroll-history' ? 'link-active' : 'hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'} `}>Enroll History</Link>
                     </li>
                 </ul>
             </div>
