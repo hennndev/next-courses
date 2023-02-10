@@ -90,13 +90,12 @@ const Courses = ({data: dataCourses}) => {
 }
 
 
-export const getStaticProps = async() => {
+export const getServerSideProps = async() => {
     const data = await fetchAPI('courses-data')
 
     return {
         props: {
             data: data.data,
-            revalidae: 60
         }
     }
 }
